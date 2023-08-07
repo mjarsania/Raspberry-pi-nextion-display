@@ -1,5 +1,6 @@
 import serial
 import time
+import struct
 
 def send_command(ser, command):
     end_cmd = b'\xFF\xFF\xFF'
@@ -18,8 +19,7 @@ try:
 
     time.sleep(1)  # Allow time for the Nextion display to initialize after the serial connection is opened
 
-    # Set the value of component "n0" to a specific value (replace "100" with the desired value)
-    command = 'n0.val=' + str(100)
+    command = 't0.txt="Nextion"'
     send_command(ser, command)
 
     # You can add more commands here to control other components on the Nextion display if needed.
